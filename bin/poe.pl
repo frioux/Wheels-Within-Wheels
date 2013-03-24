@@ -6,7 +6,7 @@ POE::Session->create(
    inline_states => {
       _start => sub { $_[KERNEL]->call($_[SESSION], 'tick') },
       tick => sub {
-         $_[KERNEL]->alarm( tick => time() + 60 );
+         $_[KERNEL]->delay( tick => time() + 60 );
          $_[KERNEL]->post(
             'useragent', 'request', 'response',
             HTTP::Request->new(GET => 'http://git.shadowcat.co.uk/gitweb/'),
