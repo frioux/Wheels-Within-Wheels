@@ -12,7 +12,7 @@ POE::Session->create(
             HTTP::Request->new(GET => 'http://git.shadowcat.co.uk/gitweb/'),
          );
       },
-      response => sub { warn $_[-1][0]->content }, # why are there a ton of things in @_ ?
+      response => sub { warn $_[ARG1][0]->content },
    }
 );
 
